@@ -4,6 +4,23 @@ var url = require('url'),
   scraper = require('scraper');
 
 var hotspots = {
+  ku: {
+    check: function ($) {
+      if ($("title").html().toLowerCase().indexOf("university of kansas") != -1) {
+        return true;
+      }
+      return false;
+    },
+    credentials: {
+      auth_user: "FUDCon",
+      auth_pass: "KU2013",
+      redirurl: "http://google.com/",
+      accept: "Submit"
+    },
+    postOptions: {
+      path: "/"
+    }
+  },
   cartel: {
     check: function ($) {
       if ($("title").html().toLowerCase().indexOf("cartel") != -1) {
